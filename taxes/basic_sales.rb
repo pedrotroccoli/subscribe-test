@@ -9,7 +9,7 @@ class BasicSalesTax < TaxBase
   end
 
   def apply_tax(product)
-    unless match?(product)
+    if match?(product)
       return BigDecimal('0')
     end
 
