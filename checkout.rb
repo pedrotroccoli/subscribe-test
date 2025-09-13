@@ -1,5 +1,4 @@
-ReceiptItem = Struct.new(:quantity, :text, :price, :tax, :total_with_tax)
-Receipt = Struct.new(:lines, :total, :taxes)
+require_relative './domain/receipt'
 
 class Checkout
   def initialize(tax_manager)
