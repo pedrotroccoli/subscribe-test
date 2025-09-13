@@ -2,19 +2,18 @@ require_relative '../domain/tax_base'
 
 class BasicSalesTax < TaxBase
   RATE = BigDecimal('0.1')
+  EXEMPT_CATEGORIES = ['book', 'food', 'medical'].freeze
 
   def apply_tax(product)
-    if product.category.to_s == 'book' || product.category.to_s == 'food' || product.category.to_s == 'medical'
+    if EXEMPT_CATEGORIES.include?(product.category.to_s)
       return BigDecimal('0')
     end
 
-    tax = product.price * RATE
-
-    round_up(tax)
+    round_up(product.price * RATE)
   end
 
   # Round up to the nearest 0.05
   def round_up(tax)
-    (tax * 20).ceil / 20.0
+    BigDecimal((tax * 20).ceil) / 20.0
   end
 end
