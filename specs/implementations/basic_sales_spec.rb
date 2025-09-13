@@ -1,4 +1,4 @@
-require_relative '../../taxes/basic_sales'
+require_relative '../../implementations/basic_sales'
 
 RSpec.describe BasicSalesTax do
   let (:basic_sales_tax) { BasicSalesTax.new }

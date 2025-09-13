@@ -1,4 +1,4 @@
-require_relative '../../taxes/import_duty'
+require_relative '../../implementations/import_duty'
 
 RSpec.describe ImportDutyTax do
   let (:import_duty_tax) { ImportDutyTax.new }
