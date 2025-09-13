@@ -37,3 +37,4 @@ I would create a utils for this, since it's a function that maybe could be used 
 
 1. Ok, I'll start now, maybe I'll come back and check all my initial thoughts and change something in the middle of the process. But this is the main structure.
 2. Now I created the main taxes classes that calculates all the required taxes for products, I'll start to create the Checkout now.
+3. I noticed one more strucutre is important, a "CheckoutItem" to match a product and a quantity of a product. I already created it.
