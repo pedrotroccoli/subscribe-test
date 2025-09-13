@@ -8,6 +8,10 @@ class Checkout
     @items << checkout_item
   end
 
+  def clear
+    @items = []
+  end
+
   def generate_receipt
     total = 0
     taxes = 0
