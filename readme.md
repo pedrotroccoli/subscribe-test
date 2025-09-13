@@ -3,6 +3,15 @@
 Hello everyone, my name is Pedro Troccoli and I'll let my thoughts and why I took some project/architeture decisions written is some `md` files in this project,
 this is the main file so my initial review would be here.
 
+### For a quick guide in how to run:
+
+**[See the complete setup and running guide →](how-to-run.md)**
+
+This guide includes:
+- Prerequisites and installation steps
+- How to run the application and tests
+- Project structure overview
+- Troubleshooting common issues
 
 ## About the problem
 
