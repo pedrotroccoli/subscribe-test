@@ -11,9 +11,4 @@ class BasicSalesTax < TaxBase
 
     round_up(product.price * RATE)
   end
-
-  # Round up to the nearest 0.05
-  def round_up(tax)
-    BigDecimal((tax * 20).ceil) / 20.0
-  end
 end
