@@ -8,8 +8,8 @@ class Checkout
   end
 
   def generate_receipt
-    puts "All products: \n"
+    puts "All products: \n\n"
     puts "Sales Taxes: $0,00"
-    puts "Total: $0,00"
+    puts "Total: $0,00 \n\n"
   end
 end
