@@ -1,0 +1,1 @@
+CheckoutItem = Struct.new(:product, :quantity)
