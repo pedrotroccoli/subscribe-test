@@ -40,3 +40,5 @@ I would create a utils for this, since it's a function that maybe could be used 
 4. I finished the first version of it, all the common scenarios that were passed to it are working. I was focused on it but I'll assume that I forgot to create first the tests and after the classes,
 so my focus now is creating the tests for all the the classes. And also, I'm missing the ReceiptPrinter, I'll implement it too.
 5. I finished all the important tests, I'll implement the ReceiptPrinter in the checkout.
+6. With the implementation of the Receipt class, I think I have finished all the tests and the application. Now I will check again for inconsistencies and probably I'll give
+a double check in the problem statement to check if I'm missing something.
