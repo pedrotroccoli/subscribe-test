@@ -41,6 +41,14 @@ with a price of $ 6.22, the tax for this products if we apply the tax of 10% is 
 
 I would create a utils for this, since it's a function that maybe could be used in many places.
 
+## Additional Documentation
+
+For more detailed information about the project structure and implementation decisions, check out these documentation files:
+
+- **[Domain Architecture](domain/domain.md)** - Explains the core domain classes and business rules
+- **[Implementation Details](implementations/implementations.md)** - Describes the concrete implementations of taxes and printing
+- **[How to Run](how-to-run.md)** - Complete setup and running instructions
+
 ## Historic
 
 This section is basically a history of when I was creating the application. From when I started until the moment I finished. It shows some of my decisions.
