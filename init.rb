@@ -23,38 +23,45 @@ checkout.add_product(CheckoutItem.new(Product.new('Tranquility of Mind', 'book',
 checkout.add_product(CheckoutItem.new(Product.new('Music CD', 'technology', 14.99, false), 1))
 checkout.add_product(CheckoutItem.new(Product.new('Chocolate Bar', 'food', 0.85, false), 1))
 
-checkout.generate_receipt
+checkout_result = checkout.generate_receipt
 
-checkout.clear
+checkout_result.lines.each do |line|
+  puts "#{line.quantity} #{line.text} #{line.total_with_tax.to_f.round(2)}"
+end
+puts "Sales Taxes: $ #{checkout_result.taxes.to_f.round(2)}"
+puts "Total: $ #{checkout_result.total.to_f.round(2)}"
 
-puts "--------------------------------"
 
-# Input 02
+# checkout.clear
 
-# 1 imported box of chocolates at 10.00
-# 1 imported bottle of perfume at 47.50
+# puts "--------------------------------"
 
-checkout.add_product(CheckoutItem.new(Product.new('Box of Chocolates', 'food', 10.00, true), 1))
-checkout.add_product(CheckoutItem.new(Product.new('Perfume', 'technology', 47.50, true), 1))
+# # Input 02
 
-checkout.generate_receipt
+# # 1 imported box of chocolates at 10.00
+# # 1 imported bottle of perfume at 47.50
 
-checkout.clear
+# checkout.add_product(CheckoutItem.new(Product.new('Box of Chocolates', 'food', 10.00, true), 1))
+# checkout.add_product(CheckoutItem.new(Product.new('Perfume', 'technology', 47.50, true), 1))
 
-# Input 03
+# checkout.generate_receipt
 
-puts "--------------------------------"
+# checkout.clear
 
-# 1 imported bottle of perfume at 27.99
-# 1 bottle of perfume at 18.99
-# 1 packet of headache pills at 9.75
-# 3 imported boxes of chocolates at 11.25
+# # Input 03
 
-checkout.add_product(CheckoutItem.new(Product.new('Imported bottle of perfume', 'cosmetics', 27.99, true), 1))
-checkout.add_product(CheckoutItem.new(Product.new('bottle of perfume', 'cosmetics', 18.99, false), 1))
-checkout.add_product(CheckoutItem.new(Product.new('packet of headache pills', 'medical', 9.75, false), 1))
-checkout.add_product(CheckoutItem.new(Product.new('imported boxes of chocolates', 'food', 11.25, true), 3))
+# puts "--------------------------------"
 
-checkout.generate_receipt
+# # 1 imported bottle of perfume at 27.99
+# # 1 bottle of perfume at 18.99
+# # 1 packet of headache pills at 9.75
+# # 3 imported boxes of chocolates at 11.25
 
-checkout.clear
+# checkout.add_product(CheckoutItem.new(Product.new('Imported bottle of perfume', 'cosmetics', 27.99, true), 1))
+# checkout.add_product(CheckoutItem.new(Product.new('bottle of perfume', 'cosmetics', 18.99, false), 1))
+# checkout.add_product(CheckoutItem.new(Product.new('packet of headache pills', 'medical', 9.75, false), 1))
+# checkout.add_product(CheckoutItem.new(Product.new('imported boxes of chocolates', 'food', 11.25, true), 3))
+
+# checkout.generate_receipt
+
+# checkout.clear
