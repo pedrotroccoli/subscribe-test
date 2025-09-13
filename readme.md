@@ -21,3 +21,8 @@ structure and we can create classes that deal only with “products” and ‘re
 
 We would also have the `BasicSalesTax` and `ImportDutyTax` classes to manage the taxes applied to products separately. They would “inherit” or have the same structure 
 as a generic ‘Tax’ class, so the “TaxManager” could decide which taxes to apply to which products.
+
+### Specific behaviors
+
+1. Numbers - I saw that we're dealing with numbers and decimal values I can see that we have to use `BigDecimal` ruby class to deal with sums, substractions and multiplications of numbers
+with many floating points. Since it's a class made for precision I think we'll not have problems dealing with the products price and the total amount of taxes and products.
