@@ -1,10 +1,10 @@
 class Checkout
   def initialize
-    @products = []
+    @items = []
   end
 
-  def add_product(product)
-    @products << product
+  def add_product(checkout_item)
+    @items << checkout_item
   end
 
   def generate_receipt
