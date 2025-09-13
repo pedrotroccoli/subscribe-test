@@ -6,6 +6,9 @@ class BasicSalesTax < TaxBase
       return BigDecimal('0')
     end
 
-    product.price * 0.1
+    tax = product.price * 0.1
+
+    # Round up to the nearest 0.05
+    (tax * 20).ceil / 20.0
   end
 end
