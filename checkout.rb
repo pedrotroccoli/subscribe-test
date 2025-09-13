@@ -7,11 +7,16 @@ class Checkout
   end
 
   def add_product(checkout_item)
-    @items << checkout_item
+    dup_checkout = self.dup
+    dup_checkout.instance_variable_set(:@items, @items + [checkout_item])
+    dup_checkout.freeze
+    dup_checkout
   end
 
   def clear
-    @items = []
+    dup_checkout = self.dup
+    dup_checkout.instance_variable_set(:@items, [])
+    dup_checkout.freeze
   end
 
   def generate_receipt
