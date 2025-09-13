@@ -9,11 +9,16 @@ class Checkout
 
   def generate_receipt
     puts "All products: \n\n"
+    total = 0
+
     @items.each do |item|
+      total += item.product.price * item.quantity
+
       puts "#{item.quantity} #{item.product.name} #{item.product.price}"
     end
+
     puts "\n"
     puts "Sales Taxes: $0,00"
-    puts "Total: $0,00 \n\n"
+    puts "Total: $ #{total} \n\n"
   end
 end
