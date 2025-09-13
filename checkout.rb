@@ -3,7 +3,8 @@ require_relative 'taxes/import_duty'
 require_relative 'domain/tax_manager'
 
 class Checkout
-  def initialize
+  def initialize(tax_manager)
+    @tax_manager = tax_manager
     @items = []
   end
 
@@ -17,9 +18,7 @@ class Checkout
     taxes = 0
 
     @items.each do |item|
-      tax_manager = TaxManager.new([BasicSalesTax.new, ImportDutyTax.new])
-
-      all_taxes = tax_manager.apply_taxes(item.product)
+      all_taxes = @tax_manager.apply_taxes(item.product)
 
       total += (item.product.price + all_taxes) * item.quantity
       taxes += all_taxes * item.quantity
