@@ -5,12 +5,16 @@ class BasicPrinter < ReceiptPrinter
     puts "\n"
 
     receipt.lines.each do |line|
-      puts "#{line.quantity} #{line.text} #{line.total_with_tax.to_f.round(2)}"
+      puts "#{line.quantity} #{line.text} #{format_money(line.total_with_tax)}"
     end
 
     puts "\n"
 
-    puts "Sales Taxes: $ #{receipt.taxes.to_f.round(2)}"
-    puts "Total: $ #{receipt.total.to_f.round(2)}"
+    puts "Sales Taxes: #{format_money(receipt.taxes)}"
+    puts "Total: #{format_money(receipt.total)}"
+  end
+
+  def self.format_money(dec)
+    format('%.2f', dec.to_f)
   end
 end
