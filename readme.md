@@ -45,3 +45,4 @@ so my focus now is creating the tests for all the the classes. And also, I'm mis
 6. With the implementation of the Receipt class, I think I have finished all the tests and the application. Now I will check again for inconsistencies and probably I'll give
 a double check in the problem statement to check if I'm missing something.
 7. I'm filling more documentation `.md` file to give you the reasons for the creation of some `files`/`classes` and show you my thoughts.
+8. Well, as was reading the problem statement and the last change that I would do is keeping the checkout immutable for thread safety.
