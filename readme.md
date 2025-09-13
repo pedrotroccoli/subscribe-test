@@ -14,6 +14,10 @@ Since we are going to follow a class approach, I can think of an initial structu
 - Checkout (Responsible for managing everything)
 - TaxManager (Responsible for applying taxes to products)
 - ReceiptPrinter (Responsible for generating the customer's receipt)
+- Tax (Responsible for managing a specific Tax)
 
 In addition, we would have some objects, at least their representation. The `product` and the `receipt`, so that all products and receipts have the same 
 structure and we can create classes that deal only with “products” and ‘receipts’ and not with a specific type of "product" or “receipt.”
+
+We would also have the `BasicSalesTax` and `ImportDutyTax` classes to manage the taxes applied to products separately. They would “inherit” or have the same structure 
+as a generic ‘Tax’ class, so the “TaxManager” could decide which taxes to apply to which products.
