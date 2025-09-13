@@ -2,63 +2,63 @@ require 'bigdecimal'
 
 require_relative 'checkout'
 require_relative 'domain/tax_manager'
+require_relative 'domain/product'
+require_relative 'domain/checkout_item'
 require_relative 'implementations/basic_sales'
 require_relative 'implementations/import_duty'
 require_relative 'implementations/basic_printer'
 
-# Second test
-
-Product = Struct.new(:name, :category, :price, :imported)
-CheckoutItem = Struct.new(:product, :quantity)
-
 tax_manager = TaxManager.new([BasicSalesTax.new, ImportDutyTax.new])
-
 checkout = Checkout.new(tax_manager)
 
 # Input 01
 # 2 book at 12.49
 # 1 music CD at 14.99
 # 1 chocolate bar at 0.85
+book = Product.new('Tranquility of Mind', 'book', 12.49, false)
+music_cd = Product.new('Music CD', 'technology', 14.99, false)
+chocolate_bar = Product.new('Chocolate Bar', 'food', 0.85, false)
 
-checkout.add_product(CheckoutItem.new(Product.new('Tranquility of Mind', 'book', 12.49, false), 2))
-checkout.add_product(CheckoutItem.new(Product.new('Music CD', 'technology', 14.99, false), 1))
-checkout.add_product(CheckoutItem.new(Product.new('Chocolate Bar', 'food', 0.85, false), 1))
+checkout.add_product(CheckoutItem.new(book, 2))
+checkout.add_product(CheckoutItem.new(music_cd, 1))
+checkout.add_product(CheckoutItem.new(chocolate_bar, 1))
 
-checkout_result = checkout.generate_receipt
-
-BasicPrinter.print(checkout_result)
+BasicPrinter.print(checkout.generate_receipt)
 
 
-# checkout.clear
+puts "\n--------------------------------\n"
 
-# puts "--------------------------------"
+checkout.clear
 
-# # Input 02
+# Input 02
+# 1 imported box of chocolates at 10.00
+# 1 imported bottle of perfume at 47.50
+perfume = Product.new('Perfume', 'technology', 47.50, true)
+chocolate_box = Product.new('Box of Chocolates', 'food', 10.00, true)
 
-# # 1 imported box of chocolates at 10.00
-# # 1 imported bottle of perfume at 47.50
+checkout.add_product(CheckoutItem.new(chocolate_box, 1))
+checkout.add_product(CheckoutItem.new(perfume, 1))
 
-# checkout.add_product(CheckoutItem.new(Product.new('Box of Chocolates', 'food', 10.00, true), 1))
-# checkout.add_product(CheckoutItem.new(Product.new('Perfume', 'technology', 47.50, true), 1))
+BasicPrinter.print(checkout.generate_receipt)
 
-# checkout.generate_receipt
 
-# checkout.clear
+puts "\n--------------------------------\n"
 
-# # Input 03
+checkout.clear
 
-# puts "--------------------------------"
+# Input 03
+# 1 imported bottle of perfume at 27.99
+# 1 bottle of perfume at 18.99
+# 1 packet of headache pills at 9.75
+# 3 imported boxes of chocolates at 11.25
+imported_perfume = Product.new('Imported bottle of perfume', 'cosmetics', 27.99, true)
+perfume = Product.new('bottle of perfume', 'cosmetics', 18.99, false)
+headache_pills = Product.new('packet of headache pills', 'medical', 9.75, false)
+chocolate_box = Product.new('imported boxes of chocolates', 'food', 11.25, true)
 
-# # 1 imported bottle of perfume at 27.99
-# # 1 bottle of perfume at 18.99
-# # 1 packet of headache pills at 9.75
-# # 3 imported boxes of chocolates at 11.25
+checkout.add_product(CheckoutItem.new(imported_perfume, 1))
+checkout.add_product(CheckoutItem.new(perfume, 1))
+checkout.add_product(CheckoutItem.new(headache_pills, 1))
+checkout.add_product(CheckoutItem.new(chocolate_box, 3))
 
-# checkout.add_product(CheckoutItem.new(Product.new('Imported bottle of perfume', 'cosmetics', 27.99, true), 1))
-# checkout.add_product(CheckoutItem.new(Product.new('bottle of perfume', 'cosmetics', 18.99, false), 1))
-# checkout.add_product(CheckoutItem.new(Product.new('packet of headache pills', 'medical', 9.75, false), 1))
-# checkout.add_product(CheckoutItem.new(Product.new('imported boxes of chocolates', 'food', 11.25, true), 3))
-
-# checkout.generate_receipt
-
-# checkout.clear
+BasicPrinter.print(checkout.generate_receipt)
