@@ -1,7 +1,7 @@
 require_relative 'basic_sales'
 
 RSpec.describe BasicSalesTax do
-  describe 'EXEMPT_CATEGORIES' do
+  describe 'Constants' do
     it 'should return a list of prefixed categories' do
       expect(BasicSalesTax::EXEMPT_CATEGORIES).to eq(['book', 'food', 'medical'])
     end
