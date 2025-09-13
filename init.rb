@@ -1,15 +1,13 @@
 require 'bigdecimal'
 
 require_relative 'checkout'
-require_relative 'domain/tax_manager'
-require_relative 'domain/product'
-require_relative 'domain/checkout_item'
-require_relative 'implementations/basic_sales'
-require_relative 'implementations/import_duty'
-require_relative 'implementations/basic_printer'
+require_relative 'domain/index'
+require_relative 'implementations/index'
 
 tax_manager = TaxManager.new([BasicSalesTax.new, ImportDutyTax.new])
 checkout = Checkout.new(tax_manager)
+
+puts "\n--------------------------------\n"
 
 # Input 01
 # 2 book at 12.49
@@ -41,7 +39,6 @@ checkout.add_product(CheckoutItem.new(perfume, 1))
 
 BasicPrinter.print(checkout.generate_receipt)
 
-
 puts "\n--------------------------------\n"
 
 checkout.clear
@@ -62,3 +59,5 @@ checkout.add_product(CheckoutItem.new(headache_pills, 1))
 checkout.add_product(CheckoutItem.new(chocolate_box, 3))
 
 BasicPrinter.print(checkout.generate_receipt)
+
+puts "\n--------------------------------\n"
