@@ -2,8 +2,9 @@ require 'bigdecimal'
 
 require_relative 'checkout'
 require_relative 'domain/tax_manager'
-require_relative 'taxes/basic_sales'
-require_relative 'taxes/import_duty'
+require_relative 'implementations/basic_sales'
+require_relative 'implementations/import_duty'
+require_relative 'implementations/basic_printer'
 
 # Second test
 
@@ -25,11 +26,7 @@ checkout.add_product(CheckoutItem.new(Product.new('Chocolate Bar', 'food', 0.85,
 
 checkout_result = checkout.generate_receipt
 
-checkout_result.lines.each do |line|
-  puts "#{line.quantity} #{line.text} #{line.total_with_tax.to_f.round(2)}"
-end
-puts "Sales Taxes: $ #{checkout_result.taxes.to_f.round(2)}"
-puts "Total: $ #{checkout_result.total.to_f.round(2)}"
+BasicPrinter.print(checkout_result)
 
 
 # checkout.clear
