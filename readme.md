@@ -32,9 +32,10 @@ with a price of $ 6.22, the tax for this products if we apply the tax of 10% is 
 
 I would create a utils for this, since it's a function that maybe could be used in many places.
 
-
-----
+## Historic
 
 1. Ok, I'll start now, maybe I'll come back and check all my initial thoughts and change something in the middle of the process. But this is the main structure.
 2. Now I created the main taxes classes that calculates all the required taxes for products, I'll start to create the Checkout now.
 3. I noticed one more strucutre is important, a "CheckoutItem" to match a product and a quantity of a product. I already created it.
+4. I finished the first version of it, all the common scenarios that were passed to it are working. I was focused on it but I'll assume that I forgot to create first the tests and after the classes,
+so my focus now is creating the tests for all the the classes. And also, I'm missing the ReceiptPrinter, I'll implement it too.
