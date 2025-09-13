@@ -1,3 +1,6 @@
+ReceiptItem = Struct.new(:quantity, :text, :price, :tax, :total_with_tax)
+Receipt = Struct.new(:lines, :total, :taxes)
+
 class Checkout
   def initialize(tax_manager)
     @tax_manager = tax_manager
@@ -16,11 +19,6 @@ class Checkout
     lines = []
     total = 0
     taxes = 0
-
-    puts "All products: \n\n"
-
-    ReceiptItem = Struct.new(:quantity, :text, :price, :tax, :total_with_tax)
-    Receipt = Struct.new(:lines, :total, :taxes)
 
     @items.each do |item|
       all_taxes = @tax_manager.apply_taxes(item.product)
