@@ -15,5 +15,16 @@ RSpec.describe Checkout do
       expect(new_checkout).to be_a(Checkout)
       expect(new_checkout).not_to be(checkout) # Should be a different object
     end
+
+    it 'adds multiple products correctly' do
+      product2 = double('Product', name: 'CD', category: 'music', price: 15.0, imported: false)
+      checkout_item2 = double('CheckoutItem', product: product2, quantity: 2)
+      
+      new_checkout = checkout.add_product(checkout_item)
+      final_checkout = new_checkout.add_product(checkout_item2)
+      
+      expect(final_checkout).to be_a(Checkout)
+    end
   end
+
 end
