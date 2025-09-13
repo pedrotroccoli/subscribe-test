@@ -27,4 +27,26 @@ RSpec.describe Checkout do
     end
   end
 
+  describe '#clear' do
+    it 'returns a new checkout with empty items' do
+      new_checkout = checkout.add_product(checkout_item)
+      cleared_checkout = new_checkout.clear
+      
+      expect(cleared_checkout).to be_a(Checkout)
+    end
+  end
+
+  describe '#generate_receipt' do
+    before do
+      allow(tax_manager).to receive(:apply_taxes).with(product).and_return(BigDecimal('1.0'))
+    end
+
+    it 'generates a receipt with correct calculations' do
+      new_checkout = checkout.add_product(checkout_item)
+      receipt = new_checkout.generate_receipt
+      
+      expect(receipt).to be_a(Receipt)
+      expect(tax_manager).to have_received(:apply_taxes).with(product)
+    end
+  end
 end
