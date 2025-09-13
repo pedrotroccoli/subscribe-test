@@ -17,10 +17,13 @@ class Checkout
     @items.each do |item|
       all_taxes = @tax_manager.apply_taxes(item.product)
 
-      total += (item.product.price + all_taxes) * item.quantity
+      product_after_taxes = item.product.price + all_taxes
+      total_products = product_after_taxes * item.quantity
+
+      total += total_products
       taxes += all_taxes * item.quantity
 
-      puts "#{item.quantity} #{item.product.name} #{item.product.price} - #{all_taxes.to_f.round(2)} - #{(all_taxes * item.quantity).to_f.round(2)}"
+      puts "#{item.quantity} #{item.product.name} #{total_products.to_f.round(2)}"
     end
 
     puts "\n"
