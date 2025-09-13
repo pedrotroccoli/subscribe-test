@@ -24,3 +24,37 @@ checkout.add_product(CheckoutItem.new(Product.new('Music CD', 'technology', 14.9
 checkout.add_product(CheckoutItem.new(Product.new('Chocolate Bar', 'food', 0.85, false), 1))
 
 checkout.generate_receipt
+
+checkout.clear
+
+puts "--------------------------------"
+
+# Input 02
+
+# 1 imported box of chocolates at 10.00
+# 1 imported bottle of perfume at 47.50
+
+checkout.add_product(CheckoutItem.new(Product.new('Box of Chocolates', 'food', 10.00, true), 1))
+checkout.add_product(CheckoutItem.new(Product.new('Perfume', 'technology', 47.50, true), 1))
+
+checkout.generate_receipt
+
+checkout.clear
+
+# Input 03
+
+puts "--------------------------------"
+
+# 1 imported bottle of perfume at 27.99
+# 1 bottle of perfume at 18.99
+# 1 packet of headache pills at 9.75
+# 3 imported boxes of chocolates at 11.25
+
+checkout.add_product(CheckoutItem.new(Product.new('Imported bottle of perfume', 'cosmetics', 27.99, true), 1))
+checkout.add_product(CheckoutItem.new(Product.new('bottle of perfume', 'cosmetics', 18.99, false), 1))
+checkout.add_product(CheckoutItem.new(Product.new('packet of headache pills', 'medical', 9.75, false), 1))
+checkout.add_product(CheckoutItem.new(Product.new('imported boxes of chocolates', 'food', 11.25, true), 3))
+
+checkout.generate_receipt
+
+checkout.clear
