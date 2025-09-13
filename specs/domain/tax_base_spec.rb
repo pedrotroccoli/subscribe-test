@@ -1,4 +1,4 @@
-require_relative 'tax_base'
+require_relative '../../domain/tax_base'
 
 RSpec.describe TaxBase do
   let (:product) { Product.new('Product', 'book', 10.0, false) }

@@ -1,4 +1,4 @@
-require_relative 'basic_sales'
+require_relative '../../taxes/basic_sales'
 
 RSpec.describe BasicSalesTax do
   describe 'Constants' do
