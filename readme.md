@@ -47,3 +47,5 @@ a double check in the problem statement to check if I'm missing something.
 7. I'm filling more documentation `.md` file to give you the reasons for the creation of some `files`/`classes` and show you my thoughts.
 8. Well, as was reading the problem statement and the last change that I would do is keeping the checkout immutable for thread safety.
 9. I added the last tests for checkout now.
+10. I think I'll keep the project like this, I can create more abstractions or more tests just to verify the structure of the objets and many other things,
+but I saw in the github problem stamement that you want to keep it simple, not overengineered, not that would be my final answer.
