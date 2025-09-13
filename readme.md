@@ -31,3 +31,8 @@ of p contains (np/100 rounded up to the nearest 0.05) amount of sales tax.", I r
 with a price of $ 6.22, the tax for this products if we apply the tax of 10% is $ 0.622, but, we need to round it to the nearest value with 0.05 precision, this would turn our Tax to $ 0.625,
 
 I would create a utils for this, since it's a function that maybe could be used in many places.
+
+
+----
+
+Ok, I'll start now, maybe I'll come back and check all my initial thoughts and change something in the middle of the process. But this is the main structure.
