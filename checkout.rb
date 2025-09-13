@@ -13,10 +13,14 @@ class Checkout
   end
 
   def generate_receipt
+    lines = []
     total = 0
     taxes = 0
 
     puts "All products: \n\n"
+
+    ReceiptItem = Struct.new(:quantity, :text, :price, :tax, :total_with_tax)
+    Receipt = Struct.new(:lines, :total, :taxes)
 
     @items.each do |item|
       all_taxes = @tax_manager.apply_taxes(item.product)
@@ -26,12 +30,16 @@ class Checkout
 
       total += total_products
       taxes += all_taxes * item.quantity
-
-      puts "#{item.quantity} #{item.product.name} #{total_products.to_f.round(2)}"
+      
+      lines << ReceiptItem.new(
+        item.quantity,
+        item.product.name, 
+        item.product.price, 
+        all_taxes, 
+        total_products
+      )
     end
 
-    puts "\n"
-    puts "Sales Taxes: $ #{taxes.to_f.round(2)}"
-    puts "Total: $ #{total.to_f.round(2)} \n\n"
+    Receipt.new(lines, total, taxes)
   end
 end
