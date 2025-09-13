@@ -1,7 +1,3 @@
-require_relative 'taxes/basic_sales'
-require_relative 'taxes/import_duty'
-require_relative 'domain/tax_manager'
-
 class Checkout
   def initialize(tax_manager)
     @tax_manager = tax_manager
@@ -13,9 +9,10 @@ class Checkout
   end
 
   def generate_receipt
-    puts "All products: \n\n"
     total = 0
     taxes = 0
+
+    puts "All products: \n\n"
 
     @items.each do |item|
       all_taxes = @tax_manager.apply_taxes(item.product)
